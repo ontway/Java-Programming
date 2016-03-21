@@ -1,3 +1,2 @@
-# hello-world
-My first repository
-test
+# exercise
+this repository save some exercises daily.
