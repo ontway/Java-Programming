@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Main{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner in=new Scanner(System.in);
+        int nOfCase=in.nextInt();
+        int[] r=new int[nOfCase];
+        for(int i=0;i<nOfCase;i++){
+        	int n=in.nextInt();
+        	int p=in.nextInt();
+        	int w=in.nextInt();
+        	int h=in.nextInt();
+        	int[] c=new int[n];
+        	for(int j=0;j<n;j++)
+        		c[j]=in.nextInt();
+        	r[i]=find(n,p,w,h,c);
+        	
+        }
+        for(int i=0;i<nOfCase-1;i++)
+        	System.out.println(r[i]);
+        
+        System.out.print(r[nOfCase-1]);
+        
+	}
+	public static int find(int n,int p,int w,int h,int[] c){
+		
+		int sumCharacter=0;
+		for(int i=0;i<n;i++){
+			sumCharacter+=c[i];
+		}   
+		int characterOfPage=(int)Math.ceil((double)sumCharacter/p);
+		
+		int r=1;
+		while(r<h&&r<w){
+			int nn=(int)Math.floor((double)h/r)*(int)Math.floor((double)w/r);
+			if(nn>=characterOfPage)  r++;
+			else break;
+		}
+		
+		
+		
+		return r-1;
+	}
+
+}
